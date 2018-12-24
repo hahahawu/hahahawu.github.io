@@ -158,27 +158,33 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Some-views-of-Support-Vector-Machine" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-Some-Views-about-Support-Vector-Machines" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/23/Some-views-of-Support-Vector-Machine/">Some views of Support Vector Machine</a>
+      <a class="article-title" href="/2018/12/24/Some-Views-about-Support-Vector-Machines/">Some Views about Support Vector Machines</a>
     </h1>
   
 
         
-        <a href="/2018/12/23/Some-views-of-Support-Vector-Machine/" class="archive-article-date">
-  	<time datetime="2018-12-23T12:32:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-23</time>
+        <a href="/2018/12/24/Some-Views-about-Support-Vector-Machines/" class="archive-article-date">
+  	<time datetime="2018-12-24T08:13:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Although Support Vector Machine(SVM) is a very common model in machine learning, it is hard to understand this model owing to its abstraction. Unlike Linear Model and Decision Tree, you cannnot merely use a line or a tree to depict this model. Having perplexed by SVM for a long time, I write this blog to simply record my thoughts about it.</p>
+        <p>Although Support Vector Machine(SVM) is a very common model in machine learning, it is hard for novice to deeply understand this model owing to its abstraction. Unlike Linear Model and Decision Tree, you cannnot merely use a line or a tree to depict this model. Having perplexed by SVM for a long time, I write this blog to simply record my thoughts about it.</p>
+<h2 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h2><p>The task of machine learning can be devided into two categories: Classification and Regression. Maybe you can regard regression tasks as classification tasks with infinite labels. But we normally consider SVM as classification model despite its feasibility of finishing regression tasks.</p>
+<p>To simplify the problem, I firstly discuss it in two-dimension space. Given training set $D= \langle (\vec x_1,y_1),(\vec x_2,y_2),…,(\vec x_m,y_m) \rangle, y_i \in \langle -1,+1 \rangle $, a hyperplane is expected to be selected to divide these nodes into two parts. However, there are many feasible partitions, and we are supposed to find the most robust division. Assuming that these nodes are linearly separable, I use the following linear equation to depict the hyperplane.<br>$$ \vec \omega^T \vec x + b = 0 $$<br>Hence, the distence between the nodes of set and the hyperplane can be represented as:<br>$$ r = \frac{\left| \vec \omega^T \vec x + b\right|}{\lVert \vec \omega \rVert} $$<br>If the hyperplane can correctly classify these nodes, we can get:<br>$$<br>\begin{cases}<br>\vec \omega^T \vec x_i + b \ge +1, &amp; y_i = +1; \newline<br>\vec \omega^T \vec x_i + b \le -1, &amp; y_i = -1.<br>\end{cases}<br>$$<br>Then, we define the nearest nodes from hyperplane as <strong><em>support vector</em></strong> and define the sum of distences of two support vectors to hyperplane as <strong><em>margin</em></strong>. Note that,<br>$$ \gamma = \frac{2}{\lVert \vec \omega \rVert} $$</p>
+<p><div align="center"><img src="/2018/12/24/Some-Views-about-Support-Vector-Machines/svm.png" width="40%" height="40%"></div></p>
+<p>Find the most robust division means find the hyperplane with maximum margin. Therefore, we can get the following objective function and constraint condition.<br>$$ \begin{align}<br>&amp;\max_{\vec \omega,b} \frac {2}{\lVert \vec \omega \rVert} \newline<br>&amp;\mbox{s.t.} \  y_i(\vec \omega^T \vec x + b) \ge 1,\; i = 1,2,…,m<br>\end{align} $$</p>
+<p>In general, we prefer to discuss minimization problems ranther than maximization problems. So, we can transfer this problem into:<br>$$ \begin{align}<br>&amp;\min_{\vec \omega,b} \frac {\lVert \vec \omega \rVert^2}{2} \newline<br>&amp;\mbox{s.t.} \  y_i(\vec \omega^T \vec x + b) \ge 1,\; i = 1,2,…,m<br>\end{align} $$</p>
+<p>This is the fundamental form of SVM. The next sections will introduce how to solve this equation and discuss this problem in higher dimensional space. </p>
 
       
 
@@ -196,7 +202,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Support Vecotr Machine</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Support Vector Machine</a>
         		</li>
       		
 		</ul>
@@ -206,7 +212,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/23/Some-views-of-Support-Vector-Machine/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/12/24/Some-Views-about-Support-Vector-Machines/">展开全文 >></a>
         </p>
       
 
@@ -261,11 +267,9 @@
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        
+          <a class="article-more-a" href="/2018/12/09/hello-world/#more">more >></a>
+        
       
 
       
@@ -432,7 +436,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Support Vecotr Machine</a>
+                <a href="javascript:void(0)" class="js-tag color3">Support Vector Machine</a>
               </li>
              
               <li class="article-tag-list-item">

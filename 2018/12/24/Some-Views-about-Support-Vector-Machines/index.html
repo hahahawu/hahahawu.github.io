@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="//hahahawu.com">
-  <title>Some views of Support Vector Machine | hahahawu的博客</title>
+  <title>Some Views about Support Vector Machines | hahahawu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Although Support Vector Machine(SVM) is a very common model in machine learning, it is hard to understand this model owing to its abstraction. Unlike Linear Model and Decision Tree, you cannnot merely">
-<meta name="keywords" content="Machine Learning,Support Vecotr Machine">
+  <meta name="description" content="Although Support Vector Machine(SVM) is a very common model in machine learning, it is hard for novice to deeply understand this model owing to its abstraction. Unlike Linear Model and Decision Tree,">
+<meta name="keywords" content="Machine Learning,Support Vector Machine">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Some views of Support Vector Machine">
-<meta property="og:url" content="//hahahawu.com/2018/12/23/Some-views-of-Support-Vector-Machine/index.html">
+<meta property="og:title" content="Some Views about Support Vector Machines">
+<meta property="og:url" content="//hahahawu.com/2018/12/24/Some-Views-about-Support-Vector-Machines/index.html">
 <meta property="og:site_name" content="hahahawu的博客">
-<meta property="og:description" content="Although Support Vector Machine(SVM) is a very common model in machine learning, it is hard to understand this model owing to its abstraction. Unlike Linear Model and Decision Tree, you cannnot merely">
+<meta property="og:description" content="Although Support Vector Machine(SVM) is a very common model in machine learning, it is hard for novice to deeply understand this model owing to its abstraction. Unlike Linear Model and Decision Tree,">
 <meta property="og:locale" content="eng">
-<meta property="og:updated_time" content="2018-12-23T12:56:47.000Z">
+<meta property="og:image" content="//hahahawu.com/2018/12/24/Some-Views-about-Support-Vector-Machines/svm.png">
+<meta property="og:updated_time" content="2018-12-24T09:14:14.682Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Some views of Support Vector Machine">
-<meta name="twitter:description" content="Although Support Vector Machine(SVM) is a very common model in machine learning, it is hard to understand this model owing to its abstraction. Unlike Linear Model and Decision Tree, you cannnot merely">
+<meta name="twitter:title" content="Some Views about Support Vector Machines">
+<meta name="twitter:description" content="Although Support Vector Machine(SVM) is a very common model in machine learning, it is hard for novice to deeply understand this model owing to its abstraction. Unlike Linear Model and Decision Tree,">
+<meta name="twitter:image" content="//hahahawu.com/2018/12/24/Some-Views-about-Support-Vector-Machines/svm.png">
   
     <link rel="alternative" href="/atom.xml" title="hahahawu的博客" type="application/atom+xml">
   
@@ -157,27 +159,33 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Some-views-of-Support-Vector-Machine" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-Some-Views-about-Support-Vector-Machines" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Some views of Support Vector Machine
+      Some Views about Support Vector Machines
     </h1>
   
 
         
-        <a href="/2018/12/23/Some-views-of-Support-Vector-Machine/" class="archive-article-date">
-  	<time datetime="2018-12-23T12:32:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-23</time>
+        <a href="/2018/12/24/Some-Views-about-Support-Vector-Machines/" class="archive-article-date">
+  	<time datetime="2018-12-24T08:13:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Although Support Vector Machine(SVM) is a very common model in machine learning, it is hard to understand this model owing to its abstraction. Unlike Linear Model and Decision Tree, you cannnot merely use a line or a tree to depict this model. Having perplexed by SVM for a long time, I write this blog to simply record my thoughts about it.</p>
+        <p>Although Support Vector Machine(SVM) is a very common model in machine learning, it is hard for novice to deeply understand this model owing to its abstraction. Unlike Linear Model and Decision Tree, you cannnot merely use a line or a tree to depict this model. Having perplexed by SVM for a long time, I write this blog to simply record my thoughts about it.</p>
+<h2 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h2><p>The task of machine learning can be devided into two categories: Classification and Regression. Maybe you can regard regression tasks as classification tasks with infinite labels. But we normally consider SVM as classification model despite its feasibility of finishing regression tasks.</p>
+<p>To simplify the problem, I firstly discuss it in two-dimension space. Given training set $D= \langle (\vec x_1,y_1),(\vec x_2,y_2),…,(\vec x_m,y_m) \rangle, y_i \in \langle -1,+1 \rangle $, a hyperplane is expected to be selected to divide these nodes into two parts. However, there are many feasible partitions, and we are supposed to find the most robust division. Assuming that these nodes are linearly separable, I use the following linear equation to depict the hyperplane.<br>$$ \vec \omega^T \vec x + b = 0 $$<br>Hence, the distence between the nodes of set and the hyperplane can be represented as:<br>$$ r = \frac{\left| \vec \omega^T \vec x + b\right|}{\lVert \vec \omega \rVert} $$<br>If the hyperplane can correctly classify these nodes, we can get:<br>$$<br>\begin{cases}<br>\vec \omega^T \vec x_i + b \ge +1, &amp; y_i = +1; \newline<br>\vec \omega^T \vec x_i + b \le -1, &amp; y_i = -1.<br>\end{cases}<br>$$<br>Then, we define the nearest nodes from hyperplane as <strong><em>support vector</em></strong> and define the sum of distences of two support vectors to hyperplane as <strong><em>margin</em></strong>. Note that,<br>$$ \gamma = \frac{2}{\lVert \vec \omega \rVert} $$</p>
+<p><div align="center"><img src="/2018/12/24/Some-Views-about-Support-Vector-Machines/svm.png" width="40%" height="40%"></div></p>
+<p>Find the most robust division means find the hyperplane with maximum margin. Therefore, we can get the following objective function and constraint condition.<br>$$ \begin{align}<br>&amp;\max_{\vec \omega,b} \frac {2}{\lVert \vec \omega \rVert} \newline<br>&amp;\mbox{s.t.} \  y_i(\vec \omega^T \vec x + b) \ge 1,\; i = 1,2,…,m<br>\end{align} $$</p>
+<p>In general, we prefer to discuss minimization problems ranther than maximization problems. So, we can transfer this problem into:<br>$$ \begin{align}<br>&amp;\min_{\vec \omega,b} \frac {\lVert \vec \omega \rVert^2}{2} \newline<br>&amp;\mbox{s.t.} \  y_i(\vec \omega^T \vec x + b) \ge 1,\; i = 1,2,…,m<br>\end{align} $$</p>
+<p>This is the fundamental form of SVM. The next sections will introduce how to solve this equation and discuss this problem in higher dimensional space. </p>
 
       
 
@@ -195,7 +203,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Support Vecotr Machine</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Support Vector Machine</a>
         		</li>
       		
 		</ul>
@@ -359,7 +367,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Support Vecotr Machine</a>
+                <a href="javascript:void(0)" class="js-tag color3">Support Vector Machine</a>
               </li>
              
               <li class="article-tag-list-item">
