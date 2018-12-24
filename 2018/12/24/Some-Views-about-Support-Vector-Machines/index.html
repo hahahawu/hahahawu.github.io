@@ -9,7 +9,7 @@
   <title>Some Views about Support Vector Machines | hahahawu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Although Support Vector Machine(SVM) is a very common model in machine learning, it is hard for novice to deeply understand this model owing to its abstraction. Unlike Linear Model and Decision Tree,">
-<meta name="keywords" content="Machine Learning,Support Vector Machine">
+<meta name="keywords" content="Machine Learning,Support Vector Machine,English">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Some Views about Support Vector Machines">
 <meta property="og:url" content="//hahahawu.com/2018/12/24/Some-Views-about-Support-Vector-Machines/index.html">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="Although Support Vector Machine(SVM) is a very common model in machine learning, it is hard for novice to deeply understand this model owing to its abstraction. Unlike Linear Model and Decision Tree,">
 <meta property="og:locale" content="eng">
 <meta property="og:image" content="//hahahawu.com/2018/12/24/Some-Views-about-Support-Vector-Machines/svm.png">
-<meta property="og:updated_time" content="2018-12-24T09:14:14.682Z">
+<meta property="og:updated_time" content="2018-12-24T12:25:05.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Some Views about Support Vector Machines">
 <meta name="twitter:description" content="Although Support Vector Machine(SVM) is a very common model in machine learning, it is hard for novice to deeply understand this model owing to its abstraction. Unlike Linear Model and Decision Tree,">
@@ -56,7 +56,7 @@
 		  <h1 class="header-author"><a href="/">hahahawu</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">好好学习，顺利毕业</p>
+		<p class="header-subtitle">Knowledge is power.</p>
 		
 
 		<nav class="header-menu">
@@ -77,7 +77,7 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">About me</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">Statement</a>
     			
             
 		</nav>
@@ -112,7 +112,7 @@
 			  <h1 class="header-author js-header-author">hahahawu</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>好好学习，顺利毕业<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>Knowledge is power.<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -181,6 +181,7 @@
       
         <p>Although Support Vector Machine(SVM) is a very common model in machine learning, it is hard for novice to deeply understand this model owing to its abstraction. Unlike Linear Model and Decision Tree, you cannnot merely use a line or a tree to depict this model. Having perplexed by SVM for a long time, I write this blog to simply record my thoughts about it.</p>
 <h2 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h2><p>The task of machine learning can be devided into two categories: Classification and Regression. Maybe you can regard regression tasks as classification tasks with infinite labels. But we normally consider SVM as classification model despite its feasibility of finishing regression tasks.</p>
+<a id="more"></a>
 <p>To simplify the problem, I firstly discuss it in two-dimension space. Given training set $D= \langle (\vec x_1,y_1),(\vec x_2,y_2),…,(\vec x_m,y_m) \rangle, y_i \in \langle -1,+1 \rangle $, a hyperplane is expected to be selected to divide these nodes into two parts. However, there are many feasible partitions, and we are supposed to find the most robust division. Assuming that these nodes are linearly separable, I use the following linear equation to depict the hyperplane.<br>$$ \vec \omega^T \vec x + b = 0 $$<br>Hence, the distence between the nodes of set and the hyperplane can be represented as:<br>$$ r = \frac{\left| \vec \omega^T \vec x + b\right|}{\lVert \vec \omega \rVert} $$<br>If the hyperplane can correctly classify these nodes, we can get:<br>$$<br>\begin{cases}<br>\vec \omega^T \vec x_i + b \ge +1, &amp; y_i = +1; \newline<br>\vec \omega^T \vec x_i + b \le -1, &amp; y_i = -1.<br>\end{cases}<br>$$<br>Then, we define the nearest nodes from hyperplane as <strong><em>support vector</em></strong> and define the sum of distences of two support vectors to hyperplane as <strong><em>margin</em></strong>. Note that,<br>$$ \gamma = \frac{2}{\lVert \vec \omega \rVert} $$</p>
 <p><div align="center"><img src="/2018/12/24/Some-Views-about-Support-Vector-Machines/svm.png" width="40%" height="40%"></div></p>
 <p>Find the most robust division means find the hyperplane with maximum margin. Therefore, we can get the following objective function and constraint condition.<br>$$ \begin{align}<br>&amp;\max_{\vec \omega,b} \frac {2}{\lVert \vec \omega \rVert} \newline<br>&amp;\mbox{s.t.} \  y_i(\vec \omega^T \vec x + b) \ge 1,\; i = 1,2,…,m<br>\end{align} $$</p>
@@ -205,11 +206,26 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Support Vector Machine</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">English</a>
+        		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Technology//" class="article-tag-list-link color1">Technology</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -221,6 +237,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/12/24/ZhouQi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          写于周琦被裁后六天
+        
+      </div>
+    </a>
   
   
     <a href="/2018/12/09/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
@@ -342,7 +367,7 @@ MathJax.Hub.Queue(function() {
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">About me</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">Statement</a></li>
       
         
     </ul>
@@ -371,11 +396,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">English</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Programming</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">中文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">篮球</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NBA</a>
               </li>
             
             <div class="clearfix"></div>
@@ -426,7 +467,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">根本就不知道这里应该写些什么好&lt;br/&gt;&lt;br/&gt;就祝大家福如东海，寿比南山吧！</div>
   	  	
     	</section>
     
